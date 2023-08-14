@@ -1,0 +1,5 @@
+#colorSquare {
+    width: 100px;
+    height: 100px;
+    background-color: red; /* Set an initial color for the square */
+}
