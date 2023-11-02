@@ -1,0 +1,11 @@
+header {
+    text-align: center;
+    border: 3px solid purple;
+}
+.section {
+    padding: 10px;
+    background-color: orange;
+}
+.section > div {
+    color: green;
+}

@@ -1,0 +1,13 @@
+header > h1 {
+    text-align: center;
+    color: red;
+}
+header > h2 {
+    color: blue;
+}
+  .border {
+    border: 5px solid green;
+ }
+ body {
+    background-color: orange;
+ }

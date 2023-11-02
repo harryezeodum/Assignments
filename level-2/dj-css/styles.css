@@ -1,0 +1,107 @@
+#box1 {
+    background-color: blue;
+    height: 100px;
+    width: 100px;
+    border: 5px solid black;
+    margin: 10px;
+    padding: 10px;
+    transition: all 2s ease-in-out 2s;
+}
+#box1:hover {
+    background-color: black;
+    height: 200px;
+    width: 200px;
+    border: 10px solid blue;
+    margin: 10px;
+    padding: 20px;
+}
+
+#box2 {
+    background-color: yellow;
+    height: 100px;
+    width: 100px;
+    border: 5px solid black;
+    margin: 10px;
+    padding: 10px;
+    transition: all 2s ease-in-out 2s;
+}
+#box2:hover {
+    background-color: blue;
+    height: 200px;
+    width: 200px;
+    border: 10px solid yellow;
+    margin: 10px;
+    padding: 20px;
+}
+
+#box3 {
+    background-color: purple;
+    height: 100px;
+    width: 100px;
+    border: 5px solid black;
+    margin: 10px;
+    padding: 10px;
+    transition: all 2s ease-in-out 2s;
+}
+#box3:hover {
+    background-color: red;
+    height: 200px;
+    width: 200px;
+    border: 10px solid burlywood;
+    margin: 10px;
+    padding: 20px;
+}
+
+#box4 {
+    background-color: pink;
+    height: 100px;
+    width: 100px;
+    border: 5px solid black;
+    margin: 10px;
+    padding: 10px;
+    transition: all 2s ease-in-out 2s;
+}
+#box4:hover {
+    background-color: chartreuse;
+    height: 200px;
+    width: 200px;
+    border: 10px solid pink;
+    margin: 10px;
+    padding: 20px;
+}
+
+#box5 {
+    background-color: green;
+    height: 100px;
+    width: 100px;
+    border: 5px solid black;
+    margin: 10px;
+    padding: 10px;
+    transition: all 2s ease-in-out 2s;
+}
+#box5:hover {
+    background-color: darkorange;
+    height: 200px;
+    width: 200px;
+    border: 10px solid green;
+    margin: 10px;
+    padding: 20px;
+}
+
+#box6 {
+    background-color: brown;
+    height: 100px;
+    width: 100px;
+    border: 5px solid grey;
+    margin: 10px;
+    padding: 10px;
+    transition: all 2s ease-in-out 2s;
+}
+#box6:hover {
+    background-color: purple;
+    height: 200px;
+    width: 200px;
+    border: 10px solid brown;
+    margin: 10px;
+    padding: 20px;
+}

@@ -1,0 +1,113 @@
+{
+    "appetizers": [
+        {
+            "name": "Code Byte Chips",
+            "ingredients": [
+                "Potato Slices",
+                "Seasonings",
+                "Sour Cream Dip"
+            ],
+            "description": "Crispy potato slices seasoned with a programmer's touch, served with tangy sour cream dip."
+        },
+        {
+            "name": "Algorithmic Avocado Toast",
+            "ingredients": [
+                "Avocado Spread",
+                "Multigrain Toast",
+                "Cherry Tomatoes",
+                "Microgreens"
+            ],
+            "description": "A delightful blend of creamy avocado spread, fresh cherry tomatoes, and microgreens on toasted multigrain bread."
+        }
+    ],
+    "cold_sandwiches": [
+        {
+            "name": "JSON's Classic Club",
+            "ingredients": [
+                "Roasted Turkey",
+                "Bacon",
+                "Lettuce",
+                "Tomato",
+                "Mayonnaise",
+                "Sourdough"
+            ],
+            "description": "A classic combination of roasted turkey, crispy bacon, lettuce, and tomato with a creamy layer of mayonnaise on toasted sourdough."
+        },
+        {
+            "name": "HTML Veggie Delight",
+            "ingredients": [
+                "Hummus",
+                "Cucumber",
+                "Bell Peppers",
+                "Red Onion",
+                "Lettuce",
+                "Whole Wheat Bread"
+            ],
+            "description": "A vegetarian delight featuring hummus, crisp cucumber, bell peppers, and red onion with fresh lettuce on wholesome whole wheat bread."
+        }
+    ],
+    "hot_sandwiches": [
+        {
+            "name": "Python Pesto Panini",
+            "ingredients": [
+                "Grilled Chicken",
+                "Pesto Sauce",
+                "Mozzarella Cheese",
+                "Ciabatta"
+            ],
+            "description": "Grilled chicken breast, flavorful pesto sauce, and melted mozzarella cheese on warm ciabatta bread, pressed to perfection."
+        },
+        {
+            "name": "Java BBQ Brisket Melt",
+            "ingredients": [
+                "BBQ Brisket",
+                "Cheddar Cheese",
+                "Caramelized Onions",
+                "Garlic Aioli",
+                "Sourdough"
+            ],
+            "description": "Slow-cooked BBQ brisket, sharp cheddar cheese, caramelized onions, and garlic aioli on toasted sourdough, creating a melt-in-your-mouth experience."
+        }
+    ],
+    "desserts": [
+        {
+            "name": "Binary Brownie Bliss",
+            "ingredients": [
+                "Rich Chocolate Brownie",
+                "Vanilla Ice Cream",
+                "Chocolate Sauce"
+            ],
+            "description": "Decadent chocolate brownie served warm, topped with a scoop of creamy vanilla ice cream and drizzled with indulgent chocolate sauce."
+        },
+        {
+            "name": "CSS Cookie Crunch",
+            "ingredients": [
+                "Soft-baked Chocolate Chip Cookie",
+                "Cookies and Cream Ice Cream",
+                "Whipped Cream"
+            ],
+            "description": "A delightful dessert featuring soft-baked chocolate chip cookies, cookies and cream ice cream, and a dollop of whipped cream for the perfect sweet treat."
+        }
+    ],
+    "drinks": [
+        {
+            "name": "Java Jolt Cold Brew",
+            "ingredients": [
+                "Cold Brew Coffee",
+                "Milk",
+                "Sweet Cream",
+                "Vanilla Syrup"
+            ],
+            "description": "Smooth cold brew coffee mixed with milk, sweet cream, and a hint of vanilla syrup, providing a refreshing caffeine boost."
+        },
+        {
+            "name": "Syntax Soda Fizz",
+            "ingredients": [
+                "Sparkling Water",
+                "Lemon Slice",
+                "Mint Leaves"
+            ],
+            "description": "A bubbly and refreshing drink made with sparkling water, fresh lemon slice, and mint leaves, perfect for a crisp and zesty sip."
+        }
+    ]
+}

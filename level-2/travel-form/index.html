@@ -1,0 +1,40 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Travel Form</title>
+</head>
+<body>
+    <header>
+        <h2> Welcome to my Airline</h2> 
+        <p> Please fill the form below to book a flight </p> <br> <br>
+    </header>
+    <form name="airline">
+        <label for="first-name"> First name </label>
+        <input type="text" name="first-name" placeholder="Enter your First name"> <br> <br>
+        <label for="last-name"> Last name </label>
+        <input type="text" name="last-name" placeholder="Enter your Last name"> <br> <br>
+        <label for="age">Enter your age</label>
+        <input type="number" min="1" max="100" name="age"> <br> <br>
+        <label for="gender">What is your gender:</label>
+         Male<input type="radio" name="gender" value="male">
+        Female<input type="radio" name="gender" value="female"> <br> <br>
+        <label for="location">Please select your travel location</label>
+        <select name="location">
+            <option value="new-york">New York</option>
+            <option value="houston">Houston</option>
+            <option value="san-diego">San Diego</option>
+        </select> <br> <br>
+        <label for="diet">Please choose your diet if applicable:</label> <br>
+        <label for="diet">Vegetarian</label>
+        <input type="checkbox" name="diet" value="vegetarian"> <br>
+        <label for="diet">Kosher</label>
+        <input type="checkbox" name="diet" value="kosher"> <br>
+        <label for="diet">Lactose free</label>
+        <input type="checkbox" name="diet" value="lactose"> <br> <br>
+        <button id="submit">Submit</button>
+    </form>
+    <script src="app.js"></script>
+</body>
+</html>
