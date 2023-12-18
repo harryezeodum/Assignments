@@ -1,0 +1,47 @@
+.navbar-brand {
+    font-weight: bold;
+    font-size: large;
+    text-decoration: none;
+    margin-left: 150px;
+    color: white;
+}
+nav {
+    color: white;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    border-bottom: 5px solid #dee2e6;
+    
+}
+.navbar-list {
+    display: flex;
+    padding-left: 20px;
+    margin-right: 170px;
+    list-style: none;
+}
+.navbar-list > li > a {
+    text-decoration: none;
+    padding: 30px;
+    color: white;
+}
+
+body {
+    background-image: url("https://startbootstrap.github.io/startbootstrap-clean-blog/assets/img/home-bg.jpg");
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: top;
+}
+.blog {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+}
+.font {
+    font-size: 90px;
+    padding-top: 200px
+}
+.font1 {
+    font-size: 30px;
+    margin-bottom: 100px;
+}

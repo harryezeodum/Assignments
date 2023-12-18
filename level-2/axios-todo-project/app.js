@@ -1,4 +1,5 @@
 //console.log(axios);
+const editForm = document.editTodo;
 function getTodos() {
     axios.get("https://api.vschool.io/harry/todo/")
     .then(response => listTodos(response.data))
@@ -13,13 +14,93 @@ function listTodos(list){
         const strike = document.createElement("s");
         const checkbox = document.createElement("input");
         checkbox.setAttribute("type", "checkbox");
-        checkbox.setAttribute("class", "checkbox");
-        checkbox.setAttribute("name", "setcomplete");
+        checkbox.addEventListener("change", function(){
+            if(checkbox.checked){
+                axios.put("https://api.vschool.io/harry/todo/" + list[i]._id, {completed: true})
+                .then(() => getTodos())
+                .catch(err => console.log(err))
+            } else if(checkbox.checked === false){
+                axios.put("https://api.vschool.io/harry/todo/" + list[i]._id, {completed: false})
+                .then(() => getTodos())
+                .catch(err => console.log(err))
+            }
+        });
         const edit = document.createElement("button");
+        edit.addEventListener("click", function() {
+            axios.get("https://api.vschool.io/harry/todo/"+ list[i]._id)
+                 .then((response) => getTodos(response.data))
+                 .catch(err => console.log(err));
+                 
+            const save = document.createElement("button");
+            save.textContent = "Save"
+            const titleLabel = document.createElement("label");
+            titleLabel.setAttribute("for", "title");
+            titleLabel.textContent = "Title: ";
+            const title = document.createElement("input");
+            title.setAttribute("name", "title");
+            title.value = list[i].title;
+            const descriptionLabel = document.createElement("label");
+            descriptionLabel.textContent = "Description: "
+            const description = document.createElement("input");
+            description.setAttribute("name", "description");
+            description.value = list[i].description;
+            const priceLabel = document.createElement("label");
+            priceLabel.textContent = "Price: "
+            const price = document.createElement("input");
+            price.setAttribute("name", "price");
+            price.value = list[i].price;
+            const completedLabel = document.createElement("label");
+            completedLabel.textContent = "Completed: "
+            const completed = document.createElement("input");
+            completed.setAttribute("type", "checkbox");
+            completed.setAttribute("name", "completed");
+            const updateTodo = {
+                title: editForm.title.value,
+                description: description.value,
+                price: price.value,
+                completed: completed.checked
+            }
+
+            save.addEventListener("click", function() {
+                axios.put("https://api.vschool.io/harry/todo/" + list[i]._id, updateTodo)
+                .then(() => getTodos())
+                .catch(err => console.log(err));
+            })
+
+            
+
+            editForm.appendChild(titleLabel);
+            editForm.appendChild(title);
+            editForm.appendChild(descriptionLabel);
+            editForm.appendChild(description),
+            editForm.appendChild(priceLabel);
+            editForm.appendChild(price);
+            editForm.appendChild(completedLabel);
+            editForm.appendChild(completed);
+            editForm.appendChild(save);
+        })
+
+            //li.innerHTML = "";
+            // li.appendChild(titleLabel);
+            // li.appendChild(title);
+            // li.appendChild(descriptionLabel);
+            // li.appendChild(description),
+            // li.appendChild(priceLabel);
+            // li.appendChild(price);
+            // li.appendChild(completedLabel);
+            // li.appendChild(completed);
+            // li.appendChild(save);
+
         const del = document.createElement("button");
+        del.addEventListener("click", function(){
+            axios.delete("https://api.vschool.io/harry/todo/"+ list[i]._id)
+                 .then(() => getTodos())
+                 .catch(err => console.log(err));
+
+        })
         edit.textContent = " Edit";
         del.textContent = " Delete"
-        del.setAttribute("class", "del");
+        //del.setAttribute("class", "del");
         if(list[i].completed) {
             strike.textContent = "Title: " + list[i].title + ". Description: " + list[i].description + ". Price: " + list[i].price + ". Completed: " + list[i].completed;
             checkbox.checked = true;
@@ -58,40 +139,6 @@ function postTodos(e) {
          postTodo.price.value = "";
          postTodo.completed.checked = false;
 }
-
-// function deleteTodo(del) {
-//     if(del.target.classList.contains("del")) {
-//         del.target.closest("li").remove();
-//     }
-    
-//     axios.delete("https://api.vschool.io/harry/todo/" + del._id)
-//          .then(response => console.log(response))
-//          .catch(error => console.log(error));
-// }
-
-// const deletedTodo = document.getElementsByClassName("del").target;
-// console.log(deletedTodo.target);
-// deletedTodo.target.addEventListener("click", deleteTodo);
-
-
-const checkBoxId = document.getElementsByClassName("checkbox");
-//checkBoxId.target.closest("checkbox");
-console.log(checkBoxId);
-function checkBox(id, checkbox) {
-    const completed = checkbox.checked;
-    axios.put("https://api.vschool.io/harry/todo/" + id._id, { completed: completed})
-     .then(response => {checkbox.nextElementSibling.classList.toggle("completed", completed)})
-     .catch(error => console.log(error));
-}
-checkBoxId.addEventListener("click", checkBox);
-
-
-// function deleteItem(event) {
-//     if(event.target.classList.contains("delete")){
-//       event.target.closest("li").remove();
-//     }
-//   }
-//    ul.addEventListener("click", deleteItem);
 
 
 

@@ -1,8 +1,8 @@
-let people = ["Jon", "Jacob", "Jingle", "Heimer", "Schmidt"]
-let alphabet = "abcdefghijklmnopqrstuvwxyz"
+let peoples = ["Jon", "Jacob", "Jingle", "Heimer", "Schmidt"]
+let alphabets = "abcdefghijklmnopqrstuvwxyz"
 
-let output = forception(people, alphabet);
-console.log(output);
+console.log(forception(peoples, alphabets));
+
 
 function forception(people, alphabet){
     // your code here
@@ -17,4 +17,3 @@ function forception(people, alphabet){
         }
     } return peopleAlphabet;
 }
-
