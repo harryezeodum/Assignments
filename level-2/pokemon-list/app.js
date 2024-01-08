@@ -15,13 +15,12 @@ xhr.onreadystatechange = function() {
 
 function showData(pokemonNames) {
     const arr = pokemonNames.map(pokemonName => {
-        const ul = document.createElement("ul");
+        const ul = document.getElementById("list");
         const li = document.createElement("li");
         const h3 = document.createElement("h3");
-        h3.textContent = pokemonName.name + " " + pokemonName.resource_uri;
+        h3.textContent = pokemonName.name.toUpperCase() + " " + pokemonName.resource_uri;
         li.appendChild(h3);
         ul.appendChild(li);
-        document.body.appendChild(ul)
         //document.body.appendChild(h3);
     })
     return arr;

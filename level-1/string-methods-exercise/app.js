@@ -34,4 +34,5 @@ function capitalize(string) {
     }
     return capitalized.join(" ");
 }
+
 console.log(capitalize("hey friends! practice practice practice!"));

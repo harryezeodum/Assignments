@@ -79,6 +79,24 @@ for (var i = 0; i < peopleArray.length; i += 2) {
     occupations1.push(lists)
 }console.log(occupations1);
 
+const arr = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
+let results = [];
+for (let i = 0; i < arr.length; i++) {
+    const result = [];
+    for (let j = 0; j < arr[i].length; j++) {
+        result.push(i);
+    } results.push(result);
+} console.log(results);
+
+const arrs = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
+
+for (let i = 0; i < arrs.length; i++) {
+    for (let j = 0; j < arrs[i].length; j++) {
+        arrs[i][j] = "x";
+    }console.log(arrs[i]);
+}
+
+
 
   // ["Harrison Ford", "Vladimir Putin"] // names
   // ["Singer", "Entertainer"] // occupations

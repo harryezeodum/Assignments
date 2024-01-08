@@ -1,15 +1,9 @@
 class Player {
-    constructor() {
-        this.name = "";
-        this.totalCoins = 0;
-        this.status = "small";
-        this.hasStar = false;
-    }
-
-    setName(namePicked) {
-        if (namePicked === "Mario" || namePicked === "Luigi") {
-            this.name = namePicked;
-        }
+    constructor(name, totalCoins, status, hasStar) {
+        this.name = name;
+        this.totalCoins = totalCoins;
+        this.status = status;
+        this.hasStar = hasStar;
     }
 
     gotHit() {
@@ -54,8 +48,7 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1 )) + min;
 }
 
-const player = new Player();
-player.setName("Mario");
+const player = new Player("Harry", 0, "Big", true);
 
 const gameInterval = setInterval(() => {
     const randomValue = getRandomInt(0, 2);
@@ -73,4 +66,5 @@ const gameInterval = setInterval(() => {
         clearInterval(gameInterval);
         console.log("Game Over!");
     }
-}, 2000);
+}, 1000);
+

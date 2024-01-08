@@ -1,7 +1,7 @@
 const square = document.getElementById('colorSquare');
 
 function onClicked() {
-        square.style.backgroundColor = "purple"; 
+    square.style.backgroundColor = "purple";
 }
 function onMouse() {
     square.style.backgroundColor = "blue";
@@ -12,13 +12,13 @@ function onMouseDown() {
 function onMouseUp() {
     square.style.backgroundColor = "yellow";
 }
-function doubleClicked(){
+function doubleClicked() {
     square.style.backgroundColor = "black";
 }
 function scrolled() {
-square.style.backgroundColor = "orange";
+    square.style.backgroundColor = "orange";
 }
-function keyPress(e) {
+function keyPress() {
     alert("Hello");
 }
 square.addEventListener('click', onClicked);

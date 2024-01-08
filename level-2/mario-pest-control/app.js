@@ -8,7 +8,7 @@ function goombasCost(e) {
     totalGoombas.textContent = "$" + totalCostOfGoombas;
     spanGoombas.append(totalGoombas);
  }
- document.body.addEventListener("click", goombasCost);
+ document.getElementById("goombasTotalCost").addEventListener("click", goombasCost);
 
 const bobombsTotalCost = document.getElementById("bob-ombsTotalCost");
 function bobombsCost(e) {
@@ -20,7 +20,7 @@ function bobombsCost(e) {
     totalBobOmbs.textContent = "$" + totalCostOfGoombas;
     spanBobOmbs.append(totalBobOmbs);
  }
- document.body.addEventListener("click", bobombsCost);
+ document.getElementById("bob-ombsTotalCost").addEventListener("click", bobombsCost);
 
  const cheepCheepsTotalCost = document.getElementById("cheep-cheepsTotalCost");
 function cheepcheepCost(e) {
@@ -32,7 +32,7 @@ function cheepcheepCost(e) {
     totalCheepCheeps.textContent = "$" + totalCostOfCheepCheeps;
     spanCheepCheeps.append(totalCheepCheeps);
  }
- document.body.addEventListener("click", cheepcheepCost);
+ document.getElementById("cheep-cheepsTotalCost").addEventListener("click", cheepcheepCost);
 
  localStorage.setItem("name", "Harry");
  localStorage.setItem("isTrue", "true")
@@ -46,8 +46,8 @@ function cheepcheepCost(e) {
  const objects = JSON.parse(localStorage.getItem("Objects"));
  console.log(objects);
 
- localStorage.removeItem("isTrue");
- localStorage.Objects = JSON.stringify(["Rice"]);
+//  localStorage.removeItem("isTrue");
+//  localStorage.Objects = JSON.stringify(["Rice"]);
 
 
 

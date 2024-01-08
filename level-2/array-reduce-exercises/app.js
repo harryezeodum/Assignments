@@ -26,7 +26,7 @@ function total(arr) {
  function totalVotes(arr) {
     //your code here
     const totalVoters = arr.reduce((final, totalVote) => {
-        if(totalVote.voted === true) {
+        if(totalVote.voted) {
             final++;
         } return final;
     }, 0)
@@ -36,7 +36,7 @@ function total(arr) {
  function totalVoted(arr) {
     let num = 0;
     for(let i = 0; i < arr.length; i++) {
-        if(arr[i].voted === true){
+        if(arr[i].voted){
             num++;
         }
     } return num;

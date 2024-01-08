@@ -1,13 +1,14 @@
 // #1
 var officeItems = ["stapler", "monitor", "computer", "desk", "lamp", "computer", "lamp", "stapler", "computer",  "computer"]
 const countComputer = [];
+
 for (var i = 0; i < officeItems.length; i++) {
     if (officeItems[i] === "computer") {
         const items = officeItems[i]
-        var count = countComputer.push(items);
+        countComputer.push(items);
     }
 } 
-console.log("There are " + count + " computers in the array");
+console.log("There are " + countComputer.length + " computers in the array");
 
 // #2
 var peopleWhoWantToSeeMadMaxFuryRoad = [

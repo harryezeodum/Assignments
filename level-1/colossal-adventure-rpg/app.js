@@ -2,14 +2,16 @@ const readline = require('readline-sync');
 
 class Character {
     constructor(name, healthPoint, inventory) {
-        this.name = name; 
+        this.name = name;
         this.healthPoint = healthPoint;
         this.inventory = inventory;
     }
-    printInventory() {
-        console.log(this.inventory);
-    }
 }
+
+Character.prototype.printInventory = () => {
+    console.log(this.inventory);
+}
+
 
 const playerName = readline.question(`Please enter your name \n`)
 let playerInventory = ["Arrow", "Bow"];
@@ -65,11 +67,12 @@ while(isPlayerActive) {
                         isPlayerActive = false;
                     }
 
-                    if (enemy.healthPoint <= 0) {
+                    else if (enemy.healthPoint <= 0) {
                         console.log(`${player.name} has defeated ${enemy.name}!`);
                         player.healthPoint += 20;
                         console.log(`20 points have been added to ${player.name}'s health point.`)
-                        console.log(`${player.name}'s new Health Point: ${player.healthPoint}\n`);
+                        console.log(`${player.name}'s new Health Point: ${player.healthPoint}`);
+                        console.log(`${enemy.name}'s weapons: ${enemy.inventory} has been added to your inventory\n`);
                         playerInventory.push(enemy.inventory);
                         console.log(`Press "p" to confirm your new inventory has been added! \n`)
                         break;

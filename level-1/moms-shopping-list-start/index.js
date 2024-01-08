@@ -41,7 +41,9 @@ form.addEventListener("submit", function(e){
 
     function editItem(edit) {
       if (edit.target.classList.contains("edit")) {
-
+        const input = document.createElement("input");
+        input.value = div.textContent;
+        div.appendChild(input);
           //var box = edit.target.createElement("input");
           
           // var editList = document.getElementById("div").textContent;

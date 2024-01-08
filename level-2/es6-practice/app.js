@@ -16,7 +16,7 @@ function runForLoop(pets) {
         } else {
             name = "spot"
         }
-        console.log("pet name: ", name)
+        console.log("pet name: " + name + ", " + "Pet type: " + pet.type) 
         pet.name = name
         petObjects.push(pet)
     }

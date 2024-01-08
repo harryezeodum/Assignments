@@ -7,7 +7,7 @@ function FriendList(props) {
     return (
         <div>
             <h2>Friend List</h2> <hr/>
-            {friendLists}
+            <ol>{friendLists}</ol>
         </div>
     )
 }

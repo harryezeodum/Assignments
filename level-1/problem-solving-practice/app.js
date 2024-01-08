@@ -1,12 +1,22 @@
 // Write a function that takes an array of numbers and returns the largest (without using Math.max())
+// function largest(nums) {
+//     let largeNumber = nums[0];
+//     for (let i = 1; i < nums.length; i++) {
+//         if (nums[i] > largeNumber) {
+//             largeNumber = nums[i];
+//         }
+//     }
+//     return largeNumber;
+// }
+
 function largest(nums) {
-    let largeNumber = nums[0];
-    for (let i = 1; i < nums.length; i++) {
-        if (nums[i] > largeNumber) {
-            largeNumber = nums[i];
-        }
-    }
-    return largeNumber;
+  let largeNumber = 0;
+  for (let i = 0; i < nums.length; i++) {
+      if (nums[i] > largeNumber) {
+          largeNumber = nums[i];
+      }
+  }
+  return largeNumber;
 }
 
 // test data

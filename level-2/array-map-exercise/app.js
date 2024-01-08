@@ -107,7 +107,7 @@ function doubleNumbers(arr){
   function readyToPutInTheDOM(arr){
     // your code here
     const result = arr.map(newArr => {
-        return `<h1>${newArr.name}</h1><h2>${newArr.age}</h2>`
+        return `<h1>${newArr.name}</h1> <h2>${newArr.age}</h2>`
     }); 
     return result;
   }

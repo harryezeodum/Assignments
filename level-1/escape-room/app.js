@@ -11,7 +11,7 @@ let isAlive = true;
 let hasOpenedDoor = false;
 
 while (isAlive && !hasOpenedDoor) {
-    const options = ["Find the key", "Open the door", "Put your hand in the hole"];
+    const options = ["Find the key", "Open the door", "Put your hand in the hole", "sleep"];
     const index = readline.keyInSelect(options, "What would you like to do?");
     
     if (index === 0) {

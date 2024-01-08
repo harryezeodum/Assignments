@@ -31,6 +31,5 @@ console.log(food);
 var string = food.join(", ");
 console.log(string);
 
-string.split(" ");
-console.log(string);
+
 
