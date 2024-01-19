@@ -15,8 +15,9 @@ function App() {
   function onSubmit(event) {
     event.preventDefault();
     setListOfNames(prevState => {
-    return [...prevState, names.map(name1 => name1)]
-  })
+      return [...prevState, names.map(name1 => name1)]
+    })
+    names.name = "";
   }
 
   const namesList = listOfNames.map((name1, index) => <li key={index}> {name1} </li>)

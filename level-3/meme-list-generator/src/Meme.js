@@ -5,7 +5,7 @@ function Meme(props) {
     const [memeUpdate, setMemeUpdate] = useState({
         topText: props.topText,
         bottomText: props.bottomText,
-        randomUrl: props.image
+        randomUrl: props.randomUrl
     });
 
     function updateMeme() {
@@ -14,16 +14,16 @@ function Meme(props) {
     }
 
     function memeUpdateChanges(event) {
-        const { name, value } = event.target;
+        const { name, type, checked, value } = event.target;
         setMemeUpdate(prevText => {
             return {
-                ...prevText, [name]: value
+                ...prevText, [name]: type === "checkbox" ? checked : value
             }
         });
     }
 
     function refreshImage() {
-        const allMemes = props.memesData.memes;
+        const allMemes = props.memesData;
         const memeIndex = Math.floor(Math.random() * allMemes.length);
         const url = allMemes[memeIndex].url;
         setMemeUpdate(prevImage => {
@@ -36,15 +36,28 @@ function Meme(props) {
     function editMeme() {
         return setIsEdit(prev => !prev)
     }
+    function cancel() {
+        return setIsEdit(prev => !prev)
+    }
+
+    const backgroundColor = {
+        backgroundColor: "orange",
+        maxWidth: "88%",
+        color: "blue",
+        padding: "1px 20px",
+        border: "1px solid black"
+    }
 
     return (
         <div className="editMeme">
-            <h3>Top Text: {props.topText}</h3>
-            <img src={props.image} alt="" className="displayMeme" />
-            <h3>Bottom Text: {props.bottomText}</h3>
-            <button onClick={editMeme}>{isEdit ? "Cancel" : "Edit"}</button> <button onClick={() => props.delete(props.index)}>Delete</button>
-            {isEdit && <div className="editMeme">
-                <h3>Top Text:<input
+            {!isEdit && <div style={backgroundColor}>
+                <h3 className="editMeme--font">Top Text: {props.topText}</h3>
+                <img src={props.randomUrl} alt="" className="displayMeme" />
+                <h3 className="editMeme--font">Bottom Text: {props.bottomText}</h3>
+                <button className="editMeme--button" onClick={editMeme}>Edit</button> <button className="editMeme--button" onClick={props.delete}>Delete</button>
+            </div>}
+            {isEdit && <div className="editMeme" style={backgroundColor}>
+                <h3 className="editMeme--font">Top Text:<input
                     value={memeUpdate.topText}
                     name="topText"
                     onChange={memeUpdateChanges}
@@ -54,12 +67,13 @@ function Meme(props) {
                     <button onClick={refreshImage} className="buttonImage">Refresh Meme</button>
                 </div>
                 <img src={memeUpdate.randomUrl} alt="" className="memeUpdate" />
-                <h3> Bottom Text <input
+                <h3 className="editMeme--font"> Bottom Text <input
                     value={memeUpdate.bottomText}
                     name="bottomText"
                     onChange={memeUpdateChanges}
                 /> </h3>
                 <button onClick={updateMeme}>Update</button>
+                <button onClick={cancel}>Cancel</button>
             </div>}
         </div>
     )

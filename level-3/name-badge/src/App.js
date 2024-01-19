@@ -18,17 +18,39 @@ function App() {
     setFormData(prevState => {
       return {
         ...prevState, [name]: type === "checkbox" ? checked : value
-      };
+      }
     });
   }
   const [errMsg, setErrMsg] = useState('')
+  
   function submitForm(event) {
     event.preventDefault();
     const { firstName, lastName, email, phoneNumber, favoriteFood, placeOfBirth, comments } = formData;
 
     if (!firstName) {
-      return setErrMsg('Please provide first name')
-    } else {
+      return setErrMsg('Please provide first name');
+    }
+    if(!lastName) {
+      return setErrMsg("Please provide your last name")
+    }
+    if(!email) {
+      return setErrMsg("Please provide your email")
+    }
+    if(!placeOfBirth) {
+      return setErrMsg("Please provide your place of birth")
+    }
+    if(!phoneNumber) {
+      return setErrMsg("Please provide your phone number")
+    }
+    if(!favoriteFood) {
+      return setErrMsg("Please provide your favorite food")
+    }
+    
+    if(!comments) {
+      return setErrMsg("Please provide some comments")
+    }
+
+      else {
       setBadgeDatas(prevState => {
         return [...prevState, formData
         ]
@@ -42,6 +64,7 @@ function App() {
         favoriteFood: "",
         comments: ""
       })
+      setErrMsg("");
     }
 
 
@@ -67,15 +90,16 @@ function App() {
   return (
     <div className="App">
       <form onSubmit={submitForm} className="form" >
-          <input
-            name="firstName"
-            value={formData.firstName}
-            type="text"
-            minLength="3"
-            placeholder="First Name"
-            onChange={formChanges}
+        <input
+          name="firstName"
+          value={formData.firstName}
+          type="text"
+          minLength="3"
+          placeholder="First Name"
+          onChange={formChanges}
+          required
 
-          />
+        />
         <input
           name="lastName"
           value={formData.lastName}

@@ -9,10 +9,11 @@ const [hex, setHex] = useState("b88807");
   
 function buttonClicked() {
     const allColors = colorApi;
-    const colorIndex = Math.floor(Math.random() * allColors.length);
-    setHex(prev => {
-      return prev, allColors[colorIndex].hex;
-    }) 
+  const colorIndex = Math.floor(Math.random() * allColors.length);
+  const hex = allColors[colorIndex].hex;
+  setHex(prev => {
+    return prev, hex;
+  }); 
   }
 
 useEffect(() => {

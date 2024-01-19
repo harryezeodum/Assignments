@@ -16,10 +16,10 @@ function MemeList() {
     }
 
     function memeChanges(event) {
-        const { name, value } = event.target;
+        const { name, type, checked, value } = event.target;
         setMeme(prevText => {
             return {
-                ...prevText, [name]: value
+                ...prevText, [name]: type === "checkbox" ? checked : value
             }
         });
     }
@@ -39,7 +39,7 @@ function MemeList() {
     }
 
     function refreshImage() {
-        const allMemes = memesData.memes;
+        const allMemes = memesData;
         const memeIndex = Math.floor(Math.random() * allMemes.length);
         const url = allMemes[memeIndex].url;
         setMeme(prevImage => {
@@ -65,19 +65,19 @@ function MemeList() {
 
     useEffect(() => {
         axios.get("https://api.imgflip.com/get_memes")
-            .then(resolve => setMemesData(resolve.data.data))
+            .then(resolve => setMemesData(resolve.data.data.memes))
             .catch(error => console.log(error));
     }, [])
 
-    const listOfMemeImages = memeSubmit.map((meme, index) => {
+    const listOfMemes = memeSubmit.map((meme, index) => {
         return (
             <li key={index}>
                 <Meme
                     topText={meme.topText}
                     bottomText={meme.bottomText}
                     index={index}
-                    image={meme.randomUrl}
-                    delete={deleteMeme}
+                    randomUrl={meme.randomUrl}
+                    delete={() => deleteMeme(index)}
                     memeSubmit={memesSubmit}
                     memesData={memesData}
                     updateMeme={updateMeme}
@@ -87,8 +87,8 @@ function MemeList() {
     })
 
     return (
-        <div>
-            <h2>Meme List Generator</h2>
+        <div className="body">
+            <h2 className="title">Meme List Generator</h2>
             <div className="button">
                 <button onClick={refreshImage} className="buttonImage">Refresh Meme Image</button>
             </div>
@@ -104,6 +104,7 @@ function MemeList() {
                     name="topText"
                     value={meme.topText}
                     onChange={memeChanges}
+                    required
                 />
                 <input
                     placeholder="BottomText"
@@ -111,11 +112,12 @@ function MemeList() {
                     name="bottomText"
                     value={meme.bottomText}
                     onChange={memeChanges}
+                    required
                 />
                 <button className="formButton">Submit</button>
             </form>
             <div>
-                <ol>{listOfMemeImages}</ol> <hr />
+                <ol>{listOfMemes}</ol> <hr />
             </div>
         </div>
     )

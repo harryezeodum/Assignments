@@ -1,0 +1,40 @@
+.div {
+  background-color: aqua;
+}
+.form {
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+.form-title {
+  grid-column: 1 / 2;
+  margin: 60px;
+  height: 30px;
+  border-radius: 5px;
+}
+.form-description {
+  grid-column: 2 / 3;
+  margin: 60px;
+  border-radius: 5px;
+}
+.form-url {
+  grid-column: 3 / 4;
+  margin: 60px;
+  border-radius: 5px;
+}
+.form-button {
+  grid-column: 2 / 3;
+  height: 30px;
+  width: 100px;
+  position: relative;
+  left: 170px;
+  bottom: 20px;
+}
+.list-title {
+padding: 30px;
+text-align: center;
+}
+
+.img {
+  width: 100px;
+  height: 60px;
+}
