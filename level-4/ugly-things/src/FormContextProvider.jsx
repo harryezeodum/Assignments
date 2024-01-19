@@ -11,7 +11,7 @@ function FormContextProvider(props) {
     });
 
     const [formSubmits, setFormSubmit] = useState([]);
-
+   
     function formChanges(event) {
         const { name, type, checked, value } = event.target;
         setForm(prev => {
@@ -45,6 +45,13 @@ function FormContextProvider(props) {
             .catch(err => console.log(err));
         
     }
+
+    useEffect(() => {
+        axios.get("https://api.vschool.io/harry/thing")
+            .then(response => setFormSubmit(response.data))
+            .catch(err => console.log(err));
+    }, [])
+    
 
     return (
         <>

@@ -22,7 +22,6 @@ function Form() {
                     title={form.title}
                     description={ form.description}
                     url={form.imgUrl}
-                    index={index}
                     id={form._id}
                     deleteForm={() => deleteForm(form._id)}
                 />
