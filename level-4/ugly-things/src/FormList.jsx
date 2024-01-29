@@ -34,11 +34,11 @@ function FormList(props) {
 
     return (
         <div>
-            {!isEdit && <div>
-                <h3>Title: {props.title}</h3>
-                <h3>Description: {props.description}</h3>
+            {!isEdit && <div className="line">
+                <h3>Title: <span className="span">{props.title}</span></h3>
+                <h3>Description: <span className="span">{props.description}</span> </h3>
                 <img src={props.url} className="img" /> <br />
-                <button onClick={editForm}>{isEdit ? "Cancel" : "Edit"}</button> <button onClick={props.deleteForm}>Delete</button> <hr/>
+                <button onClick={editForm}>{isEdit ? "Cancel" : "Edit"}</button> <button onClick={props.deleteForm}>Delete</button> 
             </div>}
             {isEdit && <div>
                 <h3><input

@@ -56,14 +56,14 @@ function FormContextProvider(props) {
     return (
         <>
             <FormContext.Provider value={{
-                formChanges: formChanges,
-                formSubmit: formSubmit,
-                updateForm: updateForm,
+                formChanges,
+                formSubmit,
+                updateForm,
+                setFormSubmit,
                 title: form.title,
                 description: form.description,
                 url: form.imgUrl,
-                formSubmits: formSubmits,
-                setFormSubmit: setFormSubmit
+                formSubmits
             }}>
                 {props.children}
             </FormContext.Provider>

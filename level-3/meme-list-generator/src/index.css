@@ -73,3 +73,7 @@
 .editMeme--font {
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
+.list {
+  padding: 0px 38px;
+  color: brown;
+}

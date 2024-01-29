@@ -28,17 +28,19 @@ function Form() {
             </li>
         ]
     })
-
+    
+    
     return (
         <div className="div">
             <form className="form">
                 <input className="form-title" placeholder="Title" name="title" onChange={context.formChanges} value={context.title} required />
                 <input className="form-description" placeholder="Description" name="description" onChange={context.formChanges} value={context.description} required />
                 <input className="form-url" placeholder="URL" name="imgUrl" onChange={context.formChanges} value={context.url} required />
-                <button className="form-button" onClick={context.formSubmit}>Submit</button> <hr/>
+                <button className="form-button" onClick={context.formSubmit}>Submit</button>
             </form>
+
+            {listOfUglyThings.length > 0 && <div><h1 className="list-title">List of ugly things</h1></div>}
             <div>
-            <u><h2 className="list-title">List of ugly Things</h2></u>
                 <ol>
                     {listOfUglyThings}
                 </ol>

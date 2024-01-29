@@ -116,6 +116,7 @@ function MemeList() {
                 />
                 <button className="formButton">Submit</button>
             </form>
+            {listOfMemes.length > 0 && <div><h2 className="list">List of Memes</h2></div>}
             <div>
                 <ol>{listOfMemes}</ol> <hr />
             </div>

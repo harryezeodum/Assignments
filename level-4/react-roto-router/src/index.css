@@ -1,0 +1,48 @@
+.navbar {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: darkolivegreen;
+  align-items: center;
+  height: 8vh;
+}
+
+a:link,
+a:visited {
+  color: black;
+  text-decoration: none;
+}
+
+a:link:active,
+a:visited:active {
+  color: blue;
+}
+.homepage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 30px;
+  color: blueviolet;
+  min-height: 75vh;
+}
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: darkolivegreen;
+  padding: 5px;
+  height: 8vh;
+ 
+}
+.about {
+  text-wrap: wrap;
+  padding: 5px 35px;
+  color: blueviolet;
+  min-height: 75vh;
+}
+.services {
+  text-wrap: wrap;
+  padding: 5px 35px;
+  color: blueviolet;
+  min-height: 75vh;
+}
+

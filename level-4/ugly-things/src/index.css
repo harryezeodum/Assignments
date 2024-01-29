@@ -1,4 +1,4 @@
-.div {
+body {
   background-color: aqua;
 }
 .form {
@@ -30,11 +30,18 @@
   bottom: 20px;
 }
 .list-title {
-padding: 30px;
-text-align: center;
+padding: 10px 40px;
+color: brown;
 }
 
 .img {
   width: 100px;
   height: 60px;
+}
+.span {
+  font-weight:lighter
+}
+.line {
+  border: 1px solid black;
+  padding: 5px 15px;
 }
