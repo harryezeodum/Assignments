@@ -40,7 +40,7 @@ function lettersWithStrings(wordArray, character) {
   // Test cases:
   console.log(lettersWithStrings(["$hello!", "%%^%%", "test!"], "!")); // => ["$hello!", "test!"]
   console.log(lettersWithStrings(["#3", "$$$", "C%4!", "Hey!"], "!")); // => ["C%4!", "Hey!"]
-  console.log(lettersWithStrings(["yellow", "green", "^up^", "down", "dog"], "h")); // => []
+  console.log(lettersWithStrings(["yellow", "green", "^up^", "downhouse", "dog"], "h")); // => []
 
   // Write a function that takes a num1 and num2 and returns whether num1 is divisible by num2.
   function isDivisible(num1, num2) {

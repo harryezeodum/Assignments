@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 function Meme(props) {
-    const [isEdit, setIsEdit] = React.useState(false)
+    const [isEdit, setIsEdit] = useState(false)
     const [memeUpdate, setMemeUpdate] = useState({
         topText: props.topText,
         bottomText: props.bottomText,

@@ -17,17 +17,33 @@ console.log(book2.getDetails()); // Expected output: Title: To Kill a Mockingbir
 
 
 // Challenge 2: Arrays and Loops
+// function removeDuplicates(numArray){
+//     // define an empty array
+//     const uniqueNumber = [];
+//     // iterate through Array parameter and store in a variable num
+//     for (const num of numArray) {
+//         // check to see if num is already in uniqueNumber and if not, save it
+//         if (!uniqueNumber.includes(num)) {
+//             uniqueNumber.push(num);
+//         }
+//     } return uniqueNumber;
+// }
+
 function removeDuplicates(numArray){
     // define an empty array
     const uniqueNumber = [];
     // iterate through Array parameter and store in a variable num
-    for (const num of numArray) {
+    for (let i = 0; i < numArray.length; i++) {
         // check to see if num is already in uniqueNumber and if not, save it
-        if (!uniqueNumber.includes(num)) {
-            uniqueNumber.push(num);
+        if (uniqueNumber.includes(numArray[i])) {
+            uniqueNumber.delete;
+        }
+        else {
+            uniqueNumber.push(numArray[i])
         }
     } return uniqueNumber;
 }
+
 
 console.log(removeDuplicates([1, 2, 2, 3, 4, 4, 5])); // Expected output: [1, 2, 3, 4, 5]
 console.log(removeDuplicates([5, 5, 5, 5, 5])); // Expected output: [5]

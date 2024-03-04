@@ -14,6 +14,7 @@ function App() {
   const [badgeData, setBadgeDatas] = useState([]);
 
   function formChanges(event) {
+    console.log(event);
     const { name, value, type, checked } = event.target
     setFormData(prevState => {
       return {

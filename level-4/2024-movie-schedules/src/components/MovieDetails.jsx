@@ -15,8 +15,6 @@ function MovieDetails() {
             navigate('/');
         }
     }, []);
-    console.log(Object.keys(context.data));
-
 
     return (
         <div className="movie-detail">

@@ -41,7 +41,6 @@ function MovieContextProvider(props) {
             comments: ""
         })
        
-
         navigate("/confirmation");
     }
 

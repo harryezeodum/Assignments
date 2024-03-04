@@ -71,7 +71,7 @@ function MemeList() {
 
     const listOfMemes = memeSubmit.map((meme, index) => {
         return (
-            <li key={index}>
+            <li key={index} >
                 <Meme
                     topText={meme.topText}
                     bottomText={meme.bottomText}
@@ -117,7 +117,7 @@ function MemeList() {
                 <button className="formButton">Submit</button>
             </form>
             {listOfMemes.length > 0 && <div><h2 className="list">List of Memes</h2></div>}
-            <div>
+            <div >
                 <ol>{listOfMemes}</ol> <hr />
             </div>
         </div>

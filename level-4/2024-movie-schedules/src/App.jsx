@@ -3,7 +3,7 @@ import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import MovieDetails from "./components/MovieDetails";
 import Contact from "./components/Contact";
-import { Routes, Route, Navigate } from "react-router";
+import { Routes, Route} from "react-router";
 import About from "./components/About";
 import Confirmation from "./components/Confirmation";
 

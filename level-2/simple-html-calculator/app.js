@@ -9,10 +9,9 @@ function addition(e) {
     const result = num1 + num2;
     const div = document.createElement("div");
     div.textContent = result;
-    num1.value = "";
-    num2 = "";
     section1.append(div);
 }
+
 addButton.addEventListener("click", addition);
 
 // Substraction
