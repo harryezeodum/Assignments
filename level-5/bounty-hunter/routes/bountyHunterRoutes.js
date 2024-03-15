@@ -17,49 +17,135 @@ const Bounty = require("../models/bounty.js");
 //     { firstName: "Mike", lastName: "James", isAlive: false, bountyAmount: 5000, type: "Sith", _id: uuidv4() }
 // ]
 
+let error;
 bountyHunterRouter.route("/")
     .get(async (req, res) => {
         try {
             const foundBounties = await Bounty.find({});
             res.status(200).send(foundBounties);
-            
+
         } catch (err) {
-            console.log(err)
             res.status(500)
-            res.json({message: err})
+            res.send(err);
+            //res.json({ message: "Invalid endpoint" });
         }
     })
-    .post( async(req, res) => {
+
+    .post(async (req, res, next) => {
         try {
             const newBounty = new Bounty(req.body)
-            newBounty.save()
-            res.status(200).send(newBounty)
+            await newBounty.save()
+            res.status(201).send(newBounty)
         } catch (err) {
-            res.status(500)
-            res.json({message: err})
+            error = err.message;
+
+            res.status(500).send({
+                err_message: error
+            });
+            return next(err);
         }
-        
     });
 
 bountyHunterRouter.route("/:bountyId")
-    .get( async(req, res) => {
-        const bountyId = req.params.bountyId;
-        const foundBountyHunter = await Bounty.findOne({_id: bountyId})
-       
-        res.send(foundBountyHunter);
+    .get(async (req, res, next) => {
+        try {
+            const bountyId = req.params.bountyId;
+            const foundBountyHunter = await Bounty.findOne({ _id: bountyId })
+
+            res.send(foundBountyHunter);
+        } catch (err) {
+            error = err.message;
+
+            res.status(500).send({
+                err: error,
+                errMsg: `bountyID: ${req.params.bountyId} is invalid, Please provide the valid bountyID parameter`
+            });
+            return next({
+                err: error,
+                errMsg: `bountyID: ${req.params.bountyId} is invalid, Please provide the valid bountyID parameter`
+            });
+        }
+
     })
 
-    .put( async(req, res) => {
-        const bountyId = req.params.bountyId;
-        const updatedObject = await Bounty.findOneAndUpdate({ _id: bountyId}, req.body )
-         res.status(200).send(updatedObject)
+    .put(async (req, res, next) => {
+        try {
+            const bountyId = req.params.bountyId;
+            const updatedObject = await Bounty.findOneAndUpdate({ _id: bountyId }, req.body)
+            res.status(201).send(updatedObject);
+        } catch (err) {
+            error = err.message;
+
+            res.status(500).send({
+                err: error,
+                errMsg: `bountyID: ${req.params.bountyId} is invalid, Please provide the valid bountyID parameter`
+            });
+            return next({
+                err: error,
+                errMsg: `bountyID: ${req.params.bountyId} is invalid, Please provide the valid bountyID parameter`
+            });
+        }
     })
 
-    .delete( async(req, res) => {
-        const bountyId = req.params.bountyId;
-       await Bounty.findOneAndDelete({_id: bountyId})
-        res.send("Successfully deleted a bounty hunter from the database!");
+    .delete(async (req, res, next) => {
+        try {
+            const bountyId = req.params.bountyId;
+            await Bounty.findOneAndDelete({ _id: bountyId })
+            res.send("Successfully deleted a bounty hunter from the database!");
+        } catch (err) {
+            error = err.message;
+
+            res.status(500).send({
+                err: error,
+                errMsg: `bountyID: ${req.params.bountyId} is invalid, Please provide the valid bountyID parameter`
+            });
+            return next({
+                err: error,
+                errMsg: `bountyID: ${req.params.bountyId} is invalid, Please provide the valid bountyID parameter`
+            });
+        }
     })
 
+bountyHunterRouter.route("/search/type")
+    .get(async (req, res, next) => {
+        try {
+            const type = req.query.type;
+            const foundBountyByType = await Bounty.find({ type: type });
+            res.status(200).send(foundBountyByType);
+        } catch (err) {
+            error = err.message;
+
+            res.status(500).send({
+                err: error
+                //errMsg: `bountyID: ${req.query.type} is invalid, Please provide the valid bountyID parameter`
+            });
+            return next({
+                err: error
+                //errMsg: `bountyID: ${req.query.type} is invalid, Please provide the valid bountyID parameter`
+            });
+        }
+
+    })
+
+bountyHunterRouter.route("/search/isAlive")
+    .get(async (req, res, next) => {
+        try {
+            const isAlive = req.query.isAlive;
+            const isBountyAlive = await Bounty.find({ isAlive: isAlive });
+            res.status(200).send(isBountyAlive);
+        } catch (err) {
+            error = err.message;
+
+            res.status(500).send({
+                err: error,
+                errMsg: `bountyID: ${req.query.isAlive} is invalid, Please provide the valid bountyID parameter`
+            });
+            return next({
+                err: error,
+                errMsg: `bountyID: ${req.query.isAlive} is invalid, Please provide the valid bountyID parameter`
+            });
+        }
+
+    })
 
 module.exports = bountyHunterRouter;

@@ -7,9 +7,7 @@ function extractUniqueCharacters(strings) {
             arr.push(word[i]);
         }
     }
-
     return arr;
-    //const newArr = newArr.push(item);
 }
 
 const words = ['apple', 'banana', 'cherry'];
