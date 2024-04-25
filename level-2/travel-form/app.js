@@ -15,7 +15,7 @@ function formSubmit(event) {
         }
     }
 
-    alert(`First name: ${firstName}\n Last name: ${lastName} \n Age: ${age} \n Gender: ${gender} \n Location: ${location} \n Diet if applicable: ${diet}`)
+    alert(`First name: ${firstName} \nLast name: ${lastName} \nAge: ${age} \nGender: ${gender} \nLocation: ${location} \nDiet if applicable: ${diet}`);
 
     form["first-name"].value = "";
     form["last-name"].value = "";

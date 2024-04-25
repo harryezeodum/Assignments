@@ -1,4 +1,4 @@
-import React, {useState} from "react"
+import React, { useState } from "react"
 
 function App() {
   const [names, setNames] = useState("")
@@ -6,18 +6,15 @@ function App() {
   const [listOfNames, setListOfNames] = useState([])
 
   function nameChange(event) {
-    setNames([
-        event.target.value
-    ]
-    )
+    setNames(event.target.value)
   }
 
   function onSubmit(event) {
     event.preventDefault();
     setListOfNames(prevState => {
-      return [...prevState, names.map(name1 => name1)]
+      return [...prevState, names]
     })
-    names.name = "";
+    setNames("");
   }
 
   const namesList = listOfNames.map((name1, index) => <li key={index}> {name1} </li>)
@@ -25,23 +22,23 @@ function App() {
   return (
     <main>
       <form onSubmit={onSubmit}>
-        <input 
-          name="name"
+        <input
+          name="names"
           onChange={nameChange}
-          value={names.name}
+          value={names}
         />
         <button>Submit</button>
       </form>
       <div className="App">
-      <h1>{names}</h1>
-      <br/>
-      <h3>List of names</h3>
-      <ul>
-      {namesList}
-      </ul>
-    </div>
+        <h1>{names}</h1>
+        <br />
+        <h3>List of names</h3>
+        <ul>
+          {namesList}
+        </ul>
+      </div>
     </main>
-    
+
   );
 }
 

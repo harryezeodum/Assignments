@@ -8,7 +8,8 @@ function sum(x, y){
   }
 
   try {
-   console.log(sum(1, 2));
+    const add = sum(2, 2);
+    console.log(add);
   }
   catch(err) {
     console.log(err);
@@ -25,7 +26,8 @@ function login(username, password){
   return "login successful!";
 }
  try {
-    console.log(login("sam", "123abc"));
+   const logIn = login("sam", "123abc");
+   console.log(logIn);
  }
  catch(err) {
     console.log(err);

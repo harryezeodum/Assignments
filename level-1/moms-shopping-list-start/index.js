@@ -44,11 +44,6 @@ form.addEventListener("submit", function(e){
         const input = document.createElement("input");
         input.value = div.textContent;
         div.appendChild(input);
-          //var box = edit.target.createElement("input");
-          
-          // var editList = document.getElementById("div").textContent;
-          // box.textContent = editList.textContent;
-          // li.appendChild(box);
         }
       }
       ul.addEventListener("click", editItem); 

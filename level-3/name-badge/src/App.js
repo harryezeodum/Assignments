@@ -14,7 +14,6 @@ function App() {
   const [badgeData, setBadgeDatas] = useState([]);
 
   function formChanges(event) {
-    console.log(event);
     const { name, value, type, checked } = event.target
     setFormData(prevState => {
       return {
@@ -98,7 +97,6 @@ function App() {
           minLength="3"
           placeholder="First Name"
           onChange={formChanges}
-          required
 
         />
         <input
@@ -156,10 +154,10 @@ function App() {
           className="form-comment"
         />
         <button className="form-submit">Submit</button>
-        {errMsg}
+        <strong style={{color: "red"}}>{errMsg}</strong>
       </form>
 
-      <div>
+      <div style={{color: "purple"}}>
         {badgeDatas}
       </div>
 

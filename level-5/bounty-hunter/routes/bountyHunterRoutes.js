@@ -19,14 +19,17 @@ const Bounty = require("../models/bounty.js");
 
 let error;
 bountyHunterRouter.route("/")
-    .get(async (req, res) => {
+    .get(async (req, res, next) => {
         try {
             const foundBounties = await Bounty.find({});
             res.status(200).send(foundBounties);
 
         } catch (err) {
-            res.status(500)
-            res.send(err);
+            error = err.message;
+            res.status(500).send({ err: error });
+            return next(err);
+            // res.status(500)
+            // res.send(err);
             //res.json({ message: "Invalid endpoint" });
         }
     })
@@ -70,7 +73,7 @@ bountyHunterRouter.route("/:bountyId")
 
     .put(async (req, res, next) => {
         try {
-            const bountyId = req.params.bountyId;
+            const bountyId = await req.params.bountyId;
             const updatedObject = await Bounty.findOneAndUpdate({ _id: bountyId }, req.body)
             res.status(201).send(updatedObject);
         } catch (err) {
@@ -111,6 +114,10 @@ bountyHunterRouter.route("/search/type")
         try {
             const type = req.query.type;
             const foundBountyByType = await Bounty.find({ type: type });
+            if (foundBountyByType.length === 0) {
+                res.status(500).send({ errMsg: `bountyID: ${req.query.type} is invalid, Please provide the valid bountyID parameter` });
+                return next({ errMsg: `bountyID: ${req.query.type} is invalid, Please provide the valid bountyID parameter` });
+            }
             res.status(200).send(foundBountyByType);
         } catch (err) {
             error = err.message;

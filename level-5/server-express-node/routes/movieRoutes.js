@@ -67,7 +67,7 @@ movieRouter.route("/:movieId")
         res.send("Successfully deleted the Movie");
     })
 
-movieRouter.route("/search/genre")
+movieRouter.route("/filter/genre")
     .get((req, res) => {
         console.log(req)
         const genre = req.query.genre;

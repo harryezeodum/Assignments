@@ -7,9 +7,9 @@ function App() {
   const listOfCars = cars.map((car, index) => {
     return [
       <li key={index}>
-      <h3>{car.make}</h3>
-      <h3>{car.model}</h3>
-      <h3>{car.year}</h3>
+      <h3>Make: {car.make}</h3>
+      <h3>Model: {car.model}</h3>
+      <h3>Year: {car.year}</h3>
     </li>
     ]
     
