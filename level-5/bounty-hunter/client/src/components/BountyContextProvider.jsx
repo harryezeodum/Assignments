@@ -66,11 +66,11 @@ function BountyContextProvider(props) {
             .then(response => setBountyFormSubmit(deletedBounty))
             .catch(err => console.log(err))
 
+        navigate("/bounties");
+
         axios.get("/api/bounty")
             .then(response => setBountyData(response.data))
             .catch(err => console.log(err));
-
-        navigate("/bounties");
     }
 
     useEffect(() => {
