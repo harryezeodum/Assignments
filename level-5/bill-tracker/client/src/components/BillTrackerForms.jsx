@@ -1,17 +1,32 @@
 import React, { useContext } from "react";
 import { BillTrackerContext } from "./BillTrackerContextProvider";
+import { UserContext } from "./UserContextProvider";
+import { useNavigate } from "react-router-dom";
 
 function BillTrackerForms() {
     const context = useContext(BillTrackerContext);
 
+    const userContext = useContext(UserContext);
+
+    const navigate = useNavigate();
+
+    function billTrackerSubmit(event) {
+        event.preventDefault();
+        userContext.addBillTracker(context.billTrackerForm);
+        context.setBillTrackerForm({
+            billName: "",
+            amount: "",
+            date: "",
+            category: ""
+        });
+
+        navigate("/userbilltracker");
+    }
+
     return (
         <div>
-            <div className="bill-title">
-                <h1>Welcome to our Bill Tracker Homepage</h1>
-                <p className="bill-text">Your ultimate tool for managing your finances effortlessly! Stay organized and in control of your expenses with our intuitive interface. Easily track your bills, set reminders, and monitor your spending all in one convenient place. Say goodbye to missed payments and hello to financial peace of mind. Start managing your bills smarter today!</p>
-            </div>
             <h2 className="bill-text1">Add a Bill below</h2>
-            <form className="form" onSubmit={context.billTrackerSubmitForm}>
+            <form className="form" onSubmit={billTrackerSubmit}>
                 <label className="form-title">Bill Name:</label>
                 <input
                     className="form-input"

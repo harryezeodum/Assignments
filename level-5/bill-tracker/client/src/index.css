@@ -15,13 +15,18 @@ a:link, a:visited, a:active {
 }
 .bill-title {
     text-align: center;
+    font-size: 20px;
 }
 .bill-text {
-    font-size: x-large;
+    font-size: 30px;
     padding: 0px 100px;
 }
 .bill-text1 {
     padding: 0px 100px;
+}
+.bill-more-text {
+    padding: 0px 100px;
+    font-size: 30px;
 }
 .form {
     padding: 30px 100px;
@@ -70,4 +75,19 @@ a:link, a:visited, a:active {
     float: right;
     font-size: 25px;
     color: red;
+}
+.signup {
+    margin: 70px 100px;
+}
+.signup-more-text {
+    color: red;
+}
+.error {
+    color: red
+}
+.button {
+    font-size: large;
+}
+.welcome{
+    color: purple
 }

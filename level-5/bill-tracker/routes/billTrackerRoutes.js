@@ -44,7 +44,7 @@ billTrackerRouter.route("/:billTrackerId")
     .get(async (req, res, next) => {
         try {
             const billTrackerId = req.params.billTrackerId;
-            const billTracker = await BillTracker.findOne({ _id: billTrackerId });
+            const billTracker = await BillTracker.findOne({ _id: billTrackerId, user: req.auth._id });
             res.status(200).send(billTracker);
         }
         catch (err) {

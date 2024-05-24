@@ -1,12 +1,19 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { BillTrackerContext } from "./BillTrackerContextProvider";
+import { useParams, useNavigate } from "react-router-dom";
+import { UserContext } from "./UserContextProvider";
 
-function BillTrackerListDetail() {
-    const context = useContext(BillTrackerContext);
+function UserBillTrackerListDetail() {
+    const userContext = useContext(UserContext);
+    const navigate = useNavigate();
+
     const { billTrackerId } = useParams();
 
-    const foundBillTracker = context.billTrackerData.find(billtracker => billtracker._id === billTrackerId);
+    useEffect(() => {
+        userContext.getUserBillTrackers();
+    }, []);
+
+    const foundBillTracker = userContext.userState.billtracker.find(billtracker => billtracker._id === billTrackerId);
+
     const [editForm, setEditForm] = useState({});
 
     useEffect(() => {
@@ -19,7 +26,6 @@ function BillTrackerListDetail() {
     }, [foundBillTracker])
 
     const [isEdit, setIsEdit] = useState(false);
-    console.log(editForm);
 
     function editForms() {
         setIsEdit(prev => !prev);
@@ -39,17 +45,17 @@ function BillTrackerListDetail() {
     }
 
     function updateBillTracker() {
-        context.editBillTrackerForm(foundBillTracker._id, editForm);
+        userContext.editBillTrackerForm(foundBillTracker._id, editForm);
         setIsEdit(prev => !prev);
     }
 
     function deleteBillTracker() {
-        context.deleteBillTracker(foundBillTracker._id);
+        userContext.deleteBillTracker(foundBillTracker._id);
     }
 
     return (
         <div>
-            {!isEdit && <div className="billtrackerlistdetail">
+            {userContext.userState.token && !isEdit && <div className="billtrackerlistdetail">
                 <span><strong>Bill Name:</strong></span> <span className="billtrackerlistdetail-text">{foundBillTracker?.billName}</span> <br /> <br />
                 <span><strong>Amount:</strong></span> <span className="billtrackerlistdetail-text">${foundBillTracker?.amount}</span> <br /> <br />
                 <span><strong>Category:</strong></span> <span className="billtrackerlistdetail-text">{foundBillTracker?.category}</span> <br /> <br />
@@ -117,4 +123,4 @@ function BillTrackerListDetail() {
         </div>
     )
 }
-export default BillTrackerListDetail
+export default UserBillTrackerListDetail
