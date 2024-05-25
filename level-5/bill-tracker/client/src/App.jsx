@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import BillTrackerForms from "./components/BillTrackerForms";
@@ -7,12 +7,12 @@ import BillTrackerList from "./components/BillTrackerList";
 import Contact from "./components/Contact";
 import AboutUs from "./components/AboutUs";
 import Home from "./components/Home";
-import SignUp from "./components/signup";
 import Login from "./components/Login";
 import UserBillTracker from "./components/UserBillTracker";
 import AdminSignUp from "./components/AdminSignup";
 import AdminLogin from "./components/AdminLogin";
 import UserBillTrackerListDetail from "./components/UserBillTrackerListDetail";
+import SignUp from "./components/SignUp";
 
 function App() {
   return (
@@ -32,6 +32,7 @@ function App() {
         <Route path="/userbilltracker" element={<UserBillTracker />} />
         <Route path="/adminsignup" element={<AdminSignUp />} />
         <Route path="/adminlogin" element={<AdminLogin />} />
+
       </Routes>
     </div>
   )

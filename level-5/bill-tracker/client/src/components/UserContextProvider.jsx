@@ -156,8 +156,6 @@ function UserContextProvider(props) {
                 })
             })
             .catch(err => console.log(err.response.data.errMsg));
-
-        navigate("/confirmation");
     }
 
     function editBillTrackerForm(id, update) {

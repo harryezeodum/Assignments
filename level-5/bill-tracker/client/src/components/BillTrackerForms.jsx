@@ -20,7 +20,7 @@ function BillTrackerForms() {
             category: ""
         });
 
-        navigate("/userbilltracker");
+        navigate("/confirmation");
     }
 
     return (
