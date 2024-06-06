@@ -62,7 +62,7 @@ a:link, a:visited, a:active {
     padding-left: 10px;
 }
 .editform-button {
-    padding: 100px;
+    padding: 0px 100px;
 }
 .contact {
     padding: 20px 100px;
@@ -90,4 +90,11 @@ a:link, a:visited, a:active {
 }
 .welcome{
     color: purple
+}
+.profile{
+    font-size: large;
+    font-weight: bold;
+}
+.alluser{
+margin: 20px 100px;
 }

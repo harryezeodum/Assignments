@@ -6,8 +6,14 @@ function SignUp() {
     const [signupForm, setSignupForm] = useState({
         username: "",
         password: "",
-        isAdmin: true
+        fullName: "",
+        email: "",
+        phoneNumber: ""
     });
+
+    if (signupForm.username === "" && signupForm.password === "") {
+        userContext.setErrMsg("");
+    }
 
     function signupOnChangeForm(event) {
         const { name, type, checked, value } = event.target;
@@ -25,7 +31,7 @@ function SignUp() {
 
     return (
         <div>
-            <form className="signup" onSubmit={signup}>
+             <form className="signup" onSubmit={signup}>
                 {userContext.errMsg && <p className="error">{userContext.errMsg}</p>}
                 <label className="form-title">UserName:</label> <br />
                 <input
@@ -45,6 +51,36 @@ function SignUp() {
                     name="password"
                     onChange={signupOnChangeForm}
                     value={signupForm.password}
+                    required
+                /> <br />
+
+                <label className="form-title">Full Name:</label> <br />
+                <input
+                    className="form-input"
+                    placeholder="Full Name"
+                    name="fullName"
+                    onChange={signupOnChangeForm}
+                    value={signupForm.fullName}
+                    required
+                /> <br />
+
+                <label className="form-title">Email:</label> <br />
+                <input
+                    className="form-input"
+                    placeholder="Email"
+                    name="email"
+                    onChange={signupOnChangeForm}
+                    value={signupForm.email}
+                    required
+                /> <br />
+
+                <label className="form-title">Phone Number:</label> <br />
+                <input
+                    className="form-input"
+                    placeholder="(XXX)-XXX-XXXX"
+                    name="phoneNumber"
+                    onChange={signupOnChangeForm}
+                    value={signupForm.phoneNumber}
                     required
                 /> <br />
 

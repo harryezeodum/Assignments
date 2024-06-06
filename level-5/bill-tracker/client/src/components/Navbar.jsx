@@ -7,20 +7,24 @@ function Navbar() {
 
     return (
         <nav className="nav">
-            {!userContext.isLoggedIn && !userContext.userState.token && <Link to="/">
+            {!userContext.userState.token && <Link to="/">
                 <h2 className="nav-title">Home</h2>
             </Link>}
 
-            {userContext.isLoggedIn && userContext.userState.user.isAdmin && <Link to="/allbilltrackers">
+            {userContext.userState.token && <Link to="/profile">
+                <h2 className="nav-title">Profile</h2>
+            </Link>}
+
+            {userContext.userState.token && userContext.userState.user.isAdmin && <Link to="/allusers">
+                <h2 className="nav-title">All Users</h2>
+            </Link>}
+
+            {userContext.userState.token && userContext.userState.user.isAdmin && <Link to="/allbilltrackers">
                 <h2 className="nav-title">All Bill Trackers</h2>
             </Link>}
 
-            {userContext.isLoggedIn && !userContext.userState.user.isAdmin && <Link to="/userbilltracker">
+            {userContext.userState.token && !userContext.userState.user.isAdmin && <Link to="/userbilltracker">
                 <h2 className="nav-title">My Bill Trackers</h2>
-            </Link>}
-
-            {userContext.isLoggedIn && <Link to="">
-                <h2 className="nav-title" onClick={userContext.logout}>Logout</h2>
             </Link>}
 
             <Link to="/aboutus">
@@ -30,6 +34,10 @@ function Navbar() {
             <Link to="/contact">
                 <h2 className="nav-title">Contact us</h2>
             </Link>
+
+            {userContext.userState.token && <Link to="">
+                <h2 className="nav-title" onClick={userContext.logout}>Logout</h2>
+            </Link>}
         </nav>
     )
 }

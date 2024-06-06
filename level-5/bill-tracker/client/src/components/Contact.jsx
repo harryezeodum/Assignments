@@ -9,7 +9,6 @@ function Contact() {
 
     return (
         <div>
-            <button onClick={back} className="back">Back</button>
             <div className="contact">
                 <span><strong>Email:</strong></span> <span>abcdefg@aol.com</span> <br /> <br />
                 <span><strong>Phone:</strong></span> <span>+1 (123) 456 7890</span> <br /> <br />

@@ -1,7 +1,14 @@
-import React from "react";
+import React, {useEffect, useContext} from "react";
 import { Link } from "react-router-dom";
+import { UserContext } from "./UserContextProvider";
 
 function Home() {
+    const userContext = useContext(UserContext);
+
+    useEffect(() => {
+        userContext.logoutTimer();
+    }, []);
+
     return (
         <div>
             <div className="bill-title">

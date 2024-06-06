@@ -9,7 +9,6 @@ function AboutUs() {
 
     return (
         <div>
-            <button onClick={back} className="back">Back</button>
             <div className="bill-title">
                 <h1>About Us</h1>
                 <p className="bill-text">

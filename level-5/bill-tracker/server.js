@@ -5,8 +5,9 @@
 // npm install -g nodemon
 // npm install uuid for fake IDs
 // npm install mongoose
-// npm install jsonwebtoken and npm install dotenv
-// npm install express-jwt
+// npm install jsonwebtoken and npm install dotenv to create dotenv variables and JWT token
+// npm install express-jwt for line 27
+// npm install bcrypt for password encryption
 
 const express = require("express");
 const app = express();
@@ -19,7 +20,7 @@ const { expressjwt: jwt } = require("express-jwt");
 app.use(express.json());
 app.use(morgan("dev"));
 
-mongoose.connect("mongodb+srv://harryezeodum:Genesisruona2017.@cluster0.uxkyqgl.mongodb.net/BillTrackerDB?retryWrites=true&w=majority&appName=Cluster0", console.log('connected to db'));
+mongoose.connect(process.env.MONGO_URI, console.log('connected to db'));
 
 // Routes
 app.use("/api/auth", require("./routes/authRouter.js"));
@@ -32,10 +33,10 @@ app.use((err, req, res, next) => {
     if (err.name === "UnauthorizedError") {
         res.status(err.status);
     }
-    res.send(err);
+    return res.status(500).send(err);
 })
 
 
-app.listen("9100", () => {
-    console.log("connected to port 9100");
+app.listen(process.env.PORT, () => {
+    console.log("connected to port" + " " + process.env.PORT);
 })

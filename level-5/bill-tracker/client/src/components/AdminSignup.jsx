@@ -6,9 +6,14 @@ function AdminSignUp() {
     const [adminSignupForm, setAdminSignupForm] = useState({
         username: "",
         password: "",
-        isAdmin: true
+        isAdmin: true,
+        fullName: "",
+        email: "",
+        phoneNumber: ""
     });
-    console.log(adminSignupForm);
+    if (adminSignupForm.username === "" && adminSignupForm.password === "") {
+        userContext.setErrMsg("");
+    }
 
     function adminSignupOnChangeForm(event) {
         const { name, type, checked, value } = event.target;
@@ -46,6 +51,36 @@ function AdminSignUp() {
                     name="password"
                     onChange={adminSignupOnChangeForm}
                     value={adminSignupForm.password}
+                    required
+                /> <br />
+
+                <label className="form-title">Full Name:</label> <br />
+                <input
+                    className="form-input"
+                    placeholder="Full Name"
+                    name="fullName"
+                    onChange={adminSignupOnChangeForm}
+                    value={adminSignupForm.fullName}
+                    required
+                /> <br />
+
+                <label className="form-title">Email:</label> <br />
+                <input
+                    className="form-input"
+                    placeholder="Email"
+                    name="email"
+                    onChange={adminSignupOnChangeForm}
+                    value={adminSignupForm.email}
+                    required
+                /> <br />
+
+                <label className="form-title">Phone Number:</label> <br />
+                <input
+                    className="form-input"
+                    placeholder="Phone Number"
+                    name="phoneNumber"
+                    onChange={adminSignupOnChangeForm}
+                    value={adminSignupForm.phoneNumber}
                     required
                 /> <br />
 

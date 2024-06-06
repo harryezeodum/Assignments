@@ -2,18 +2,13 @@ import React, { useContext, useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { UserContext } from "./UserContextProvider";
 
-function UserBillTrackerListDetail() {
+function BillTrackerListDetail() {
     const userContext = useContext(UserContext);
     const navigate = useNavigate();
 
-    useEffect(() => {
-        userContext.getUserBillTrackers();
-    }, [])
-
     const { billTrackerId } = useParams();
 
-    const foundBillTracker = userContext?.userState?.billtracker?.find(billtracker => billtracker._id === billTrackerId);
-    console.log(foundBillTracker);
+    const foundBillTracker = userContext.userState.billtracker.find(billtracker => billtracker._id === billTrackerId);
 
     const [editForm, setEditForm] = useState({});
 
@@ -54,9 +49,9 @@ function UserBillTrackerListDetail() {
         userContext.deleteBillTracker(foundBillTracker._id);
     }
 
-    if (!foundBillTracker) {
-    return <div></div>
-}
+    useEffect(() => {
+        userContext.getAllBillTrackers();
+    }, []);
 
     return (
         <div>
@@ -128,4 +123,4 @@ function UserBillTrackerListDetail() {
         </div>
     )
 }
-export default UserBillTrackerListDetail
+export default BillTrackerListDetail

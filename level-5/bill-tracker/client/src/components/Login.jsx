@@ -8,6 +8,10 @@ function Login() {
         password: ""
     });
 
+    if (loginForm.username === "" && loginForm.password === "") {
+        userContext.setErrMsg("");
+    }
+
     function loginOnChangeForm(event) {
         const { name, type, checked, value } = event.target;
         setLoginForm((prev) => {
